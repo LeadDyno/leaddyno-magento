@@ -9,7 +9,19 @@ if ($this->isActive() && $publicKey){
 		'<script type="text/javascript">/*<![CDATA[*/',
 			'LeadDyno.domain="', $this->getHost(), '";',
 			'LeadDyno.key="', $publicKey, '";',
-			'LeadDyno.recordVisit();',
+			'LeadDyno.recordVisit();';
+			
+			if ($this->isWatcherActive()){
+				
+				$watcherSelector = $this->getWatcherSelector();
+				if (!$watcherSelector)
+					echo 'LeadDyno.autoWatch();';
+				else
+					echo 'LeadDyno.watch("', $watcherSelector, '");';
+				
+			}
+			
+	echo
 		'//]]></script>';
 	
 }
