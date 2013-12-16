@@ -3,7 +3,14 @@
 class Wdg_LeadDyno_Block_Code extends Mage_Core_Block_Template {
 	
 	public function getHost(){
-		return Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+		
+		$domainName = Mage::getStoreConfig(Wdg_LeadDyno_Helper_Data::XML_PATH_DOMAIN);
+		
+		if (!$domainName)
+			$domainName = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+		
+		return $domainName;
+		
 	}
 	
 	public function isActive(){
