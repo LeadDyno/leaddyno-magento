@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-	<modules>
-		<Wdg_LeadDyno>
-			<active>true</active>
-			<codePool>local</codePool>
-		</Wdg_LeadDyno>
-	</modules>
-</config>
