@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="before_body_end">
+			<block type="leaddyno/code" name="leaddyno_code" as="leaddyno_code" template="leaddyno/code.phtml"/>
+		</reference>
+	</default>
+</layout>
