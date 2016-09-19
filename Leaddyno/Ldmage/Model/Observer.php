@@ -23,8 +23,9 @@ class Leaddyno_Ldmage_Model_Observer {
                         'key' => $privatekey,
                         'purchase_code' => $order->getIncrementID(),
                         ]);
-                $httpClient->request('DELETE');
+                $httpResp = $httpClient->request('DELETE');
                 $param = $httpClient->getUri()->getQuery();
+                Mage::log("HTTP Cancellation Response: ".$httpResp->getBody());
     
             }
 
@@ -62,10 +63,10 @@ class Leaddyno_Ldmage_Model_Observer {
                             'purchase_amount' => $order->getBaseSubtotal(),
                             'code' => $order->getCouponCode(),
                             ]);
-                    $httpClient->request();
+                    $httpResp = $httpClient->request();
                     $param = $httpClient->getUri()->getQuery();
-                    Mage::log($param);
-
+                    Mage::log("HTTP Purchase Response: ".$httpResp->getBody());
+                    
                 }
                 else { 
                     Mage::log("Order status ".$order->getStatus().", but purchase total was less than zero.");
